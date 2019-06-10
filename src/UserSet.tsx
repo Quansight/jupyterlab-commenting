@@ -56,7 +56,7 @@ export class UserSet extends React.Component<IUserSetProps, IUserSetStates> {
         />
         <div style={{ float: 'right' }}>
           <button
-            className="jp-commenting-button-blue"
+            className="jp-commenting-button"
             style={{ marginLeft: '0px' }}
             type="button"
             onClick={this.handleSubmit}

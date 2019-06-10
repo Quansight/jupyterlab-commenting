@@ -142,6 +142,11 @@ export class CommentHeader extends React.Component<ICommentHeaderProps> {
     );
   }
 
+  /**
+   * Creates and returns reopen button
+   *
+   * @return Type: React.ReactNode
+   */
   getReopenButton(): React.ReactNode {
     return (
       <button
@@ -157,15 +162,23 @@ export class CommentHeader extends React.Component<ICommentHeaderProps> {
     );
   }
 
+  /**
+   * Creates and returns expand button
+   *
+   * @return Type: React.ReactNode
+   */
+  getExpandButton(): React.ReactNode {
+    return (
+      <div style={this.styles.expandBox}>
+        <div className="jp-ExpandDownIcon" />
+        <div className="jp-ExpandUpIcon" />
+      </div>
+    );
+  }
+
   shouldRenderCornerButtons(): React.ReactNode {
-    if (this.props.hover && !this.props.expanded) {
-      return (
-        <div>
-          {!this.props.resolved
-            ? this.getResolveButton()
-            : this.getReopenButton()}
-        </div>
-      );
+    if (!this.props.expanded) {
+      return <div>{this.getExpandButton()}</div>;
     } else if (this.props.expanded) {
       return (
         <div>
@@ -233,6 +246,27 @@ export class CommentHeader extends React.Component<ICommentHeaderProps> {
       width: '36px',
       borderRadius: '2px'
     },
+    expandLower: {
+      width: '13px',
+      height: '13px',
+      padding: '2px',
+      paddingTop: '13px',
+      paddingRight: '1px'
+    },
+    expandUpper: {
+      width: '13px',
+      height: '13px',
+      padding: '2px',
+      paddingLeft: '1px',
+      paddingBottom: '13px'
+    },
+    expandBox: {
+      display: 'flex',
+      paddingRight: '9px',
+      paddingTop: '9px',
+      width: '24px',
+      height: '24px'
+    },
     nameArea: {
       paddingTop: '11px'
     },
@@ -241,6 +275,8 @@ export class CommentHeader extends React.Component<ICommentHeaderProps> {
       fontWeight: 'bold' as 'bold',
       margin: '0px'
     },
-    timestamp: { fontSize: '.7em' }
+    timestamp: {
+      fontSize: '.7em'
+    }
   };
 }

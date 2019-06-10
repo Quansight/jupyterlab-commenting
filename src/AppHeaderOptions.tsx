@@ -140,7 +140,7 @@ export class AppHeaderOptions extends React.Component<
               : this.styles.dropdownLabelEnabled
           }
         >
-          Sort By:
+          Sort By: {this.getSortLabel()}
         </label>
         {this.renderDropdownButton()}
       </div>
@@ -211,6 +211,23 @@ export class AppHeaderOptions extends React.Component<
       );
     }
     return table;
+  }
+
+  /**
+   * Gets current sort label from the dropdown menu
+   
+   * @returns String of sortItems name
+   */
+  getSortLabel(): string {
+    let result = '';
+    for (let key in this.sortItems) {
+      let sortItem = this.sortItems[key];
+      if (sortItem.state == this.props.sortState) {
+        result = sortItem.name;
+        break;
+      } else;
+    }
+    return result;
   }
 
   /**

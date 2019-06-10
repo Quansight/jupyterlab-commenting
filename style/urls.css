@@ -1,0 +1,15 @@
+/*-----------------------------------------------------------------------------
+| Copyright (c) Jupyter Development Team.
+| Distributed under the terms of the Modified BSD License.
+|----------------------------------------------------------------------------*/
+
+:root {
+  /* Images
+
+  These images are included with JupyterLab for showing the Project Jupyter logo
+  */
+  
+  --jp-image-expanddown: url('images/expanddown.png');
+  --jp-image-expandup: url('images/expandup.png');
+  
+}

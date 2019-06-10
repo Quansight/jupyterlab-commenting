@@ -55,7 +55,6 @@ export class AppBody extends React.Component<IAppBodyProps> {
    * CSS styles
    */
   bodyStyle = {
-    width: '100%',
     maxHeight: '81vh',
     overflowY: 'scroll' as 'scroll',
     overflowX: 'hidden' as 'hidden',
@@ -64,7 +63,6 @@ export class AppBody extends React.Component<IAppBodyProps> {
   };
 
   bodyStyleExpanded = {
-    width: '100%',
     maxHeight: '85vh',
     overflowY: 'scroll' as 'scroll',
     overflowX: 'hidden' as 'hidden',

@@ -157,7 +157,7 @@ export class NewThreadCard extends React.Component<
       marginLeft: '4px'
     },
     buttons: {
-      display: 'flex',
+      display: 'block',
       marginTop: '12px',
       marginBottom: '4px',
       marginLeft: '4px'

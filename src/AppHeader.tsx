@@ -65,7 +65,7 @@ export class AppHeader extends React.Component<IAppHeaderProps> {
           </div>
           {this.renderAppHeader(this.props.header)}
         </div>
-        {this.shouldRenderOptions()}
+        {this.props.headerOptions}
       </div>
     );
   }
@@ -134,11 +134,13 @@ export class AppHeader extends React.Component<IAppHeaderProps> {
    * @returns Type: React.ReactNode. If the New Thread is not open
    */
   shouldRenderOptions(): React.ReactNode {
-    if (!this.props.threadOpen && !this.props.cardExpanded) {
+    /*if (!this.props.threadOpen && !this.props.cardExpanded) {
       return <div>{this.props.headerOptions}</div>;
     } else {
       return <div />;
     }
+    */
+    return <div>{this.props.headerOptions}</div>;
   }
 
   /**

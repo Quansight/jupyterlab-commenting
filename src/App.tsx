@@ -162,6 +162,7 @@ export default class App extends React.Component<IAppProps, IAppStates> {
     this.setUserInfo = this.setUserInfo.bind(this);
     this.shouldQuery = this.shouldQuery.bind(this);
     this.getNewThreadButton = this.getNewThreadButton.bind(this);
+    this.sortThreads = this.sortThreads.bind(this);
   }
 
   /**
@@ -292,10 +293,10 @@ export default class App extends React.Component<IAppProps, IAppStates> {
   }
 
   /**
-   * Creates and returns all CommentCard components with correct data
+   * Creates and returns all CommentCard components with correct data in sorted order
    *
    * @param allData Type: any - Comment data from this.props.data
-   * @return Type: React.ReactNode[] - List of CommentCard Components / ReactNodes
+   * @return Type: React.ReactNode[] - List of sorted CommentCard Components / ReactNodes
    */
   getAllCommentCards(allData: any): React.ReactNode[] {
     let cards: React.ReactNode[] = [];
@@ -323,7 +324,8 @@ export default class App extends React.Component<IAppProps, IAppStates> {
         );
       }
     }
-    return cards.reverse();
+    cards = this.sortThreads(cards);
+    return cards;
   }
 
   /**
@@ -484,6 +486,92 @@ export default class App extends React.Component<IAppProps, IAppStates> {
   setSortState(state: string) {
     this.setState({ sortState: state });
     this.shouldQuery();
+  }
+
+  /**
+   * Sorts current cards by the selected sort by option
+   *
+   * @param state Type: string - Sort by type
+   * @return Type: React.ReactNode[] - List of sorted CommentCard Components / ReactNodes
+   */
+  sortThreads(cards: any): React.ReactNode[] {
+    switch (this.state.sortState) {
+      case 'mostReplies':
+        return cards.sort(this.sortMostReplies);
+      case 'latest':
+        return cards.sort(this.sortLatest);
+      case 'date':
+        return cards.sort(this.sortDate);
+      case 'position':
+        return cards.sort(this.sortPosition);
+      default:
+        return cards.reverse();
+    }
+  }
+
+  /**
+   * Compares two thread's latest replay
+   *
+   * @param cards Type: any - Comment card thread
+   * @return Type: number - value for sorting
+   */
+  sortLatest(cardA: any, cardB: any) {
+    let latestDateA =
+      cardA.props.data.body[cardA.props.data.body.length - 1].created;
+    let latestDateB =
+      cardB.props.data.body[cardB.props.data.body.length - 1].created;
+    if (latestDateA < latestDateB) {
+      return 1;
+    }
+    if (latestDateA > latestDateB) {
+      return -1;
+    }
+    return 0;
+  }
+
+  /**
+   * Compares two thread's creation date
+   *
+   * @param cards Type: any - Comment card thread
+   * @return Type: number - value for sorting
+   */
+  sortDate(cardA: any, cardB: any) {
+    let creationDateA = cardA.props.data.body[0].created;
+    let creationDateB = cardB.props.data.body[0].created;
+    if (creationDateA < creationDateB) {
+      return 1;
+    }
+    if (creationDateA > creationDateB) {
+      return -1;
+    }
+    return 0;
+  }
+
+  /**
+   * Compares two cards' position
+   *
+   * @param cards Type: any - Comment card thread
+   * @return Type: number - value for sorting
+   */
+  sortPosition(cardA: any, cardB: any) {
+    // What is a thread's position?
+    return 0;
+  }
+
+  /**
+   * Compares two thread's reply length
+   *
+   * @param cardA, cardB Type: any - Comment card thread
+   * @return Type: number - value for sorting
+   */
+  sortMostReplies(cardA: any, cardB: any) {
+    if (cardA.props.data.total < cardB.props.data.total) {
+      return 1;
+    }
+    if (cardA.props.data.total > cardB.props.data.total) {
+      return -1;
+    }
+    return 0;
   }
 
   /**

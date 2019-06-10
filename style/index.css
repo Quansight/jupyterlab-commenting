@@ -1,3 +1,5 @@
+@import './urls.css';
+
 .jp-commenting-window {
   background: var(--jp-layout-color0);
   height: 100%;
@@ -304,3 +306,24 @@
   max-width: 350px;
   overflow-wrap: anywhere;
 }
+
+.jp-ExpandUpIcon {
+  background-image: var(--jp-image-expandup);
+  background-repeat: no-repeat;
+  margin: 2px;
+  margin-left: 1px;
+  margin-bottom: 13px;
+  height: 9px;
+  width: 12px;
+}
+
+.jp-ExpandDownIcon {
+  background-image: var(--jp-image-expanddown);
+  background-repeat: no-repeat;
+  margin: 2px;
+  margin-right: 1px;
+  margin-top: 13px;
+  height: 9px;
+  width: 12px;
+}
+
