@@ -78,9 +78,47 @@
   display: block;
 }
 
+.jp-commenting-button {
+  background: #e0e0e0;
+  color: #000000;
+  font-size: var(--jp-content-font-size0);
+  font-family: var(--jp-content-font-family);
+  line-height: var(--jp-content-line-height);
+  border-radius: var(--jp-border-radius);
+  box-shadow: none;
+  border: none;
+  outline: 0px;
+}
+.jp-commenting-button:disabled {
+  background: white;
+  color: #e0e0e0;
+  outline: 0px;
+}
+
+.jp-commenting-button:disabled:hover {
+  background: white;
+  color: #e0e0e0;
+  outline: 0px;
+}
+
+.jp-commenting-button:hover {
+  background: #e0e0e0;
+  outline: 0px;
+}
+
+.jp-commenting-button:active {
+  background: #bdbdbd;
+  outline: 0px;
+}
+
+.jp-commenting-button:focus {
+  outline: 0px;
+}
+
 .jp-commenting-button-red {
   background: white;
   color: #e57373;
+  float: right;
   font-size: var(--jp-content-font-size0);
   font-family: var(--jp-content-font-family);
   line-height: var(--jp-content-line-height);
@@ -105,6 +143,7 @@
 }
 
 .jp-commenting-button-blue {
+  float: right;
   background: white;
   color: #2196f3;
   outline: 0px;
@@ -135,6 +174,7 @@
 
 .jp-commenting-button-blue:active {
   background: #bdbdbd;
+  color: #2196f3;
   outline: 0px;
 }
 
@@ -186,7 +226,6 @@
   border: 1px solid #e0e0e0;
   box-sizing: border-box;
 }
-
 
 .jp-commenting-new-thread-button {
   display: flex;
