@@ -170,8 +170,8 @@ export class CommentHeader extends React.Component<ICommentHeaderProps> {
   getExpandButton(): React.ReactNode {
     return (
       <div style={this.styles.expandBox}>
-        <div className="jp-ExpandDownIcon" />
-        <div className="jp-ExpandUpIcon" />
+        <div className="jp-commenting-icon-expand-down" />
+        <div className="jp-commenting-icon-expand-up" />
       </div>
     );
   }

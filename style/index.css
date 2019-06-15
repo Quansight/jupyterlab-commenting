@@ -307,7 +307,7 @@
   overflow-wrap: anywhere;
 }
 
-.jp-ExpandUpIcon {
+.jp-commenting-icon-expand-up {
   background-image: var(--jp-image-expandup);
   background-repeat: no-repeat;
   margin: 2px;
@@ -317,7 +317,7 @@
   width: 12px;
 }
 
-.jp-ExpandDownIcon {
+.jp-commenting-icon-expand-down {
   background-image: var(--jp-image-expanddown);
   background-repeat: no-repeat;
   margin: 2px;
